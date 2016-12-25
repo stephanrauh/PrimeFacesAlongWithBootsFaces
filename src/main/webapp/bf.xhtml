@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>BootsFaces: next-gen JSF Framework</title>
+</h:head>
+<h:body>
+    <b:container>
+        <h:form>
+            <h1>Only BootsFaces</h1>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:inputText value="#{bean.firstName}" label="First name:"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:commandButton action="pf.jsf" value="toggle to pure PrimeFaces" ajax="false" look="success"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:selectOneMenu id="advanced" value="#{selectOneMenuView.theme}" converter="themeConverter"
+                                     panelStyle="width:180px"
+                                     effect="fade" var="t" style="width:160px" filter="true"
+                                     filterMatchMode="startsWith">
+                        <f:selectItems value="#{selectOneMenuView.themes}" var="theme" itemLabel="#{theme.displayName}"
+                                       itemValue="#{theme}"/>
+                    </b:selectOneMenu>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:dataTable var="person" value="#{bean.muchedumbre}">
+                        <b:dataTableColumn headerText="First name">#{person.firstName}</b:dataTableColumn>
+                        <b:dataTableColumn headerText="Last name">#{person.lastName}</b:dataTableColumn>
+                    </b:dataTable>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:slider  mode="badge"
+                              />
+                </b:column>
+            </b:row>
+        </h:form>
+    </b:container>
+</h:body>
+</html>

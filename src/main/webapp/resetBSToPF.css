@@ -1,0 +1,61 @@
+html {
+    font-size: initial;
+    /* -webkit-tap-highlight-color: rgba(0, 0, 0, 0); */
+}
+
+body {
+    font-family: inital;
+    font-weight: initial;
+    font-size: initial;
+    line-height: initial;
+    color: initial;
+    background-color: initial;
+    margin:8px;
+}
+
+h1.pf {
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+h2.pf {
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+h3.pf {
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.pf,
+.pf * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+label.pf {
+    font-weight: initial;
+}
+
+table.pf,
+.pf table {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+.pf td {
+    padding:1px;
+}

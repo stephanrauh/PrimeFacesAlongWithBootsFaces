@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>BootsFaces: next-gen JSF Framework</title>
+    <link rel="stylesheet" href="resetBSToPF.css"></link>
+    <link rel="stylesheet" href="themes.css"></link>
+</h:head>
+<h:body>
+    <h:form>
+        <h1 class="pf">PrimeFaces with BootsFaces</h1>
+        <p:outputLabel styleClass="pf" for="@next" value="First name:"/>
+        <p:inputText value="#{bean.firstName}"/>
+        <p:commandButton action="bf.jsf" value="toggle to pure BootsFaces" ajax="false"/>
+        <br />
+        <p:selectOneMenu id="advanced" value="#{selectOneMenuView.theme}" converter="themeConverter"
+                         panelStyle="width:180px" styleClass="pf"
+                         effect="fade" var="t" style="width:160px" filter="true" filterMatchMode="startsWith">
+            <f:selectItems value="#{selectOneMenuView.themes}" var="theme" itemLabel="#{theme.displayName}"
+                           itemValue="#{theme}"/>
+
+            <p:column style="width:10%">
+                <h:outputText styleClass="ui-theme ui-theme-#{t.name}"/>
+            </p:column>
+
+            <p:column>
+                <h:outputText value="#{t.displayName}"/>
+            </p:column>
+        </p:selectOneMenu>
+        <p:dataTable var="person" value="#{bean.muchedumbre}">
+            <p:column headerText="First name">#{person.firstName}</p:column>
+            <p:column headerText="Last name">#{person.lastName}</p:column>
+        </p:dataTable>
+        <h3 class="pf">Range Slider</h3>
+        <h:panelGrid columns="1" style="margin-bottom: 10px" class="pf">
+            <h:outputText id="displayRange" value="Between #{sliderView.number6} and #{sliderView.number7}" class="pf" />
+            <p:slider class="pf" for="txt6,txt7" display="displayRange" style="width: 400px" range="true" displayTemplate="Between {min} and {max}" />
+        </h:panelGrid>
+        <h:inputHidden id="txt6" value="#{sliderView.number6}" />
+        <h:inputHidden id="txt7" value="#{sliderView.number7}" />
+
+        <b:panel title="This panel activates BootsFaces" rendered="false"/>
+    </h:form>
+    <b:container>
+        <h:form>
+            <h1>Only BootsFaces</h1>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:inputText value="#{bean.firstName}" label="First name:"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:commandButton action="bf.jsf" value="toggle to pure BootsFaces" ajax="false" look="success"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:selectOneMenu id="advanced" value="#{selectOneMenuView.theme}" converter="themeConverter"
+                                     panelStyle="width:180px"
+                                     effect="fade" var="t" style="width:160px" filter="true"
+                                     filterMatchMode="startsWith">
+                        <f:selectItems value="#{selectOneMenuView.themes}" var="theme" itemLabel="#{theme.displayName}"
+                                       itemValue="#{theme}"/>
+                    </b:selectOneMenu>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:dataTable var="person" value="#{bean.muchedumbre}">
+                        <b:dataTableColumn>#{person.firstName}</b:dataTableColumn>
+                        <b:dataTableColumn>#{person.lastName}</b:dataTableColumn>
+                    </b:dataTable>
+                </b:column>
+            </b:row>
+            <!--
+            <b:row>
+                <b:column tiny-screen="full-width">
+                    <b:slider  mode="badge"
+                    />
+                </b:column>
+            </b:row>
+            -->
+        </h:form>
+    </b:container>
+
+</h:body>
+</html>
