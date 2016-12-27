@@ -59,3 +59,7 @@ table.pf,
 .pf td {
     padding:1px;
 }
+
+.nest-bf-in-pf .form-group {
+    margin-bottom:0px;
+}
